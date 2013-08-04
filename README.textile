@@ -1,0 +1,209 @@
+h1. sequel-parser
+
+p. This project contains a collection of "parboiled":http://parboiled.org/ based parsers for SQL statements. It can be used to test SQL statements prior to running them against a database.
+
+
+h2. Usage
+
+bc. 
+val statement = "some sql statement"
+val rule = Oracle.parser
+val runner = ReportingParseRunner(rule)
+val result = runner.run(statement)
+if (result.matched) {
+  "Valid SQL statement"
+} else {
+  "Not a valid SQL statement"
+}
+
+h3. Using a specific database version
+
+bc. 
+val statement = "some sql statement"
+val rule = Oracle.VERSION_11g.parser // Changed reference
+val runner = ReportingParseRunner(rule)
+val result = runner.run(statement)
+assert(result.parseErrors isEmpty)
+
+h3. Testing only a specific statement type
+
+bc. 
+val statement = "some sql statement"
+val rule = Oracle.CREATE_TABLE.parser // Changed reference
+val runner = ReportingParseRunner(rule)
+val result = runner.run(statement)
+assert(!result.result.isEmpty)
+
+h3. Combination
+
+bc. 
+val statement = "some sql statement"
+val rule = Oracle.VERSION_11g.CREATE_TABLE.parser // Changed reference
+val runner = ReportingParseRunner(rule)
+val result = runner.run(statement)
+assert(result.parseErrors isEmpty)
+
+
+h2. Integration
+
+h3. Maven
+
+bc. 
+<dependency>
+  <groupId>com.github.sebhoss</groupId>
+  <artifactId>sql-parser</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+</dependency>
+
+h3. sbt
+
+@libraryDependencies += "com.github.sebhoss" % "sql-parser" % 1.0.0-SNAPSHOT@ 
+
+
+h2. Supported statements & databases
+
+|_. Statement |_. Oracle 11g |
+| ALTER CLUSTER | No |
+| ALTER DATABASE | No |
+| ALTER DATABASE LINK | No |
+| ALTER DIMENSION | No |
+| ALTER DISKGROUP | No |
+| ALTER FLASHBACK ARCHIVE | No |
+| ALTER FUNCTION | No |
+| ALTER INDEX | Yes |
+| ALTER INDEXTYPE | No |
+| ALTER JAVA | No |
+| ALTER LIBRARY | No |
+| ALTER MATERIALIZED VIEW | No |
+| ALTER MATERIALIZED VIEW LOG | No |
+| ALTER OPERATOR | No |
+| ALTER OUTLINE | No |
+| ALTER PACKAGE | No |
+| ALTER PROCEDURE | No |
+| ALTER PROFILE | No |
+| ALTER RESOURCE COST | No |
+| ALTER ROLE | No |
+| ALTER ROLLBACK SEGMENT | No |
+| ALTER SEQUENCE | No |
+| ALTER SESSION | No |
+| ALTER SYSTEM | No |
+| ALTER TABLE | No |
+| ALTER TABLESPACE | No |
+| ALTER TRIGGER | No |
+| ALTER TYPE | No |
+| ALTER USER | No |
+| ALTER VIEW | No |
+| ANALYZE | No |
+| ASSOCIATE STATISTICS | No |
+| AUDIT | No |
+| CALL | No |
+| COMMENT | Yes |
+| COMMIT | No |
+| CREATE CLUSTER | No |
+| CREATE CONTEXT | No |
+| CREATE CONTROLFILE | No |
+| CREATE DATABASE | No |
+| CREATE DATABASE LINK | No |
+| CREATE DIMENSION | No |
+| CREATE DIRECTORY | No |
+| CREATE DISKGROUP | No |
+| CREATE EDITION | No |
+| CREATE FLASHBACK ARCHIVE | No |
+| CREATE FUNCTION | No |
+| CREATE INDEX | Yes |
+| CREATE INDEXTYPE | No |
+| CREATE JAVA | No |
+| CREATE LIBRARY | No |
+| CREATE MATERIALIZED VIEW | No |
+| CREATE MATERIALIZED VIEW LOG | No |
+| CREATE OPERATOR | No |
+| CREATE OUTLINE | No |
+| CREATE PACKAGE | No |
+| CREATE PACKAGE BODY | No |
+| CREATE PFILE | No |
+| CREATE PROCEDURE | No |
+| CREATE PROFILE | No |
+| CREATE RESTORE POINT | No |
+| CREATE ROLE | No |
+| CREATE ROLLBACK SEGMENT | No |
+| CREATE SCHEMA | No |
+| CREATE SEQUENCE | No |
+| CREATE SPFILE | No |
+| CREATE SYNONYM | No |
+| CREATE TABLE | Yes |
+| CREATE TABLESPACE | No |
+| CREATE TRIGGER | No |
+| CREATE TYPE | No |
+| CREATE TYPE BODY | No |
+| CREATE USER | No |
+| CREATE VIEW | No |
+| DELETE | No |
+| DISASSOCIATE STATISTICS | No |
+| DROP CLUSTER | No |
+| DROP CONTEXT | No |
+| DROP DATABASE | No |
+| DROP DATABASE LINK | No |
+| DROP DIMENSION | No |
+| DROP DIRECTORY | No |
+| DROP DISKGROUP | No |
+| DROP EDITION | No |
+| DROP FLASHBACK ARCHIVE | No |
+| DROP FUNCTION | No |
+| DROP INDEX | No |
+| DROP INDEXTYPE | No |
+| DROP JAVA | No |
+| DROP LIBRARY | No |
+| DROP MATERIALIZED VIEW | No |
+| DROP MATERIALIZED VIEW LOG | No |
+| DROP OPERATOR | No |
+| DROP OUTLINE | No |
+| DROP PACKAGE | No |
+| DROP PROCEDURE | No |
+| DROP PROFILE | No |
+| DROP RESTORE POINT | No |
+| DROP ROLE | No |
+| DROP ROLLBACK SEGMENT | No |
+| DROP SEQUENCE | No |
+| DROP SYNONYM | No |
+| DROP TABLE | No |
+| DROP TABLESPACE | No |
+| DROP TRIGGER | No |
+| DROP TYPE | No |
+| DROP TYPE BODY | No |
+| DROP USER | No |
+| DROP VIEW | No |
+| EXPLAIN PLAN | No |
+| FLASHBACK DATABASE | No |
+| FLASHBACK TABLE | No |
+| GRANT | No |
+| INSERT | No |
+| LOCK TABLE | No |
+| MERGE | No |
+| NOAUDIT | No |
+| PURGE | No |
+| RENAME | No |
+| REVOKE | No |
+| ROLLBACK | No |
+| SAVEPOINT | No |
+| SELECT | Partial |
+| SET CONSTRAINT[S] | No |
+| SET ROLE | No |
+| SET TRANSACTION | No |
+| TRUNCATE CLUSTER | No |
+| TRUNCATE TABLE | No |
+| UPDATE | No |
+
+
+h2. Development
+
+h3. License
+
+p. This project is licensed under the "Apache Software License, Version 2.0":http://www.apache.org/licenses/LICENSE-2.0/.
+
+h3. Setup
+
+p. This project is using "sbt":https://github.com/harrah/xsbt, "Eclipse":http://eclipse.org/, "Git":http://git-scm.com/ and "Scala":http://www.scala-lang.org/ as the main development tools. To build the project yourself just download & install at least sbt 0.11 and call *sbt package* inside the project folder. sbt will then build & package the project. To load the project into Eclipse first call *sbt eclipse* and then import the project into a workspace.
+
+h3. Versioning
+
+p. This project follows the "semantic versioning":http://semver.org/ guidelines.
