@@ -1,4 +1,4 @@
-h1. sequel-parser
+h1. sequel-parser "!https://travis-ci.org/sebhoss/sequel-parser.png!":https://travis-ci.org/sebhoss/sequel-parser "!https://www.ohloh.net/p/sequel-parser/widgets/project_thin_badge.gif!":https://www.ohloh.net/p/sequel-parser/
 
 p. This project contains a collection of "parboiled":http://parboiled.org/ based parsers for SQL statements. It can be used to test SQL statements prior to running them against a database.
 
