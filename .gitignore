@@ -1,0 +1,7 @@
+.settings/
+.classpath
+.project
+.scala_dependencies
+target/
+.worksheet/
+.cache
