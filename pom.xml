@@ -13,9 +13,9 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--                               INFORMATIONS                              -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <groupId>com.github.sebhoss.sql</groupId>
+  <groupId>com.github.sebhoss</groupId>
   <artifactId>sequel-parser</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <name>SQL Parser</name>
   <description>PEG-based SQL parser</description>
   <inceptionYear>2012</inceptionYear>
