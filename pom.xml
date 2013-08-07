@@ -92,6 +92,7 @@
           <args>
             <arg>-feature</arg>
             <arg>-deprecation</arg>
+            <arg>-unchecked</arg>
           </args>
         </configuration>
       </plugin>
