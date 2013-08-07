@@ -1,5 +1,7 @@
 package com.github.sebhoss.sql.oracle
 
+import scala.language.postfixOps
+
 import com.github.sebhoss.sql.SQLParser.Oracle
 
 class Oracle11gDebuggingTest extends Oracle11gTest {

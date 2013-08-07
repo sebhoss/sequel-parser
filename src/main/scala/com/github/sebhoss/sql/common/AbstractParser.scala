@@ -1,5 +1,7 @@
 package com.github.sebhoss.sql.common
 
+import scala.language.implicitConversions
+
 import com.github.sebhoss.sql.common.Lexer._
 
 import org.parboiled.scala._
