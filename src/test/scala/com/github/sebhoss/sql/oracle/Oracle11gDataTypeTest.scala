@@ -9,7 +9,7 @@ class Oracle11gDataTypeTest extends Oracle11gTest {
 }
 
 object Oracle11gDataTypeTest {
-  
+
   val statements = Set(
     /* Oracle built-in datatypes */
     "CHAR",
@@ -100,5 +100,5 @@ object Oracle11gDataTypeTest {
     "SI_FeatureList",
     "SI_Color"
   )
-  
+
 }

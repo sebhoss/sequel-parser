@@ -26,7 +26,7 @@ object Oracle11gStorageClauseTest {
     	cartesian(Set("BUFFER_POOL"), Set("KEEP", "RECYCLE", "DEFAULT")) ++
     	cartesian(Set("FLASH_CACHE"), Set("KEEP", "NONE", "DEFAULT")) ++
     	Set("ENCRYPT")
-    
+
     cartesian(storage, attribute, Set(")"))
   }
 

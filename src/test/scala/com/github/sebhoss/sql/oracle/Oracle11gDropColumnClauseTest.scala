@@ -11,13 +11,13 @@ class Oracle11gDropColumnClauseTest extends Oracle11gTest {
 }
 
 object Oracle11gDropColumnClauseTest {
-  
+
   val statements = {
     val dropColumn = Set("DROP_COLUMN")
     val group = Set("", "GROUP identifier")
     val columns = Set("XMLTABLE identifier COLUMNS identifier", "XMLTABLE identifier COLUMNS first, second")
-    
+
     cartesian(dropColumn, group, columns)
   }
-  
+
 }

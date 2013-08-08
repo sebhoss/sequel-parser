@@ -11,13 +11,13 @@ class Oracle11gAddColumnClauseTest extends Oracle11gTest {
 }
 
 object Oracle11gAddColumnClauseTest {
-  
+
   val statements = {
     val addColumn = Set("ADD_COLUMN")
     val group = Set("", "GROUP identifier")
     val columns = cartesian(Set("XMLTABLE identifier COLUMNS"), Oracle11gColumnClauseTest.statements)
-    
+
     cartesian(addColumn, group, columns)
   }
-  
+
 }

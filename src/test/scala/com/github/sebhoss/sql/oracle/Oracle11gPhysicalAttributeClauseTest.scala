@@ -16,7 +16,7 @@ object Oracle11gPhysicalAttributeClauseTest {
     val pctfree = Set("") ++ cartesian(Set("PCTFREE"), Set("1", "10", "100"))
     val pctused = Set("") ++ cartesian(Set("PCTUSED"), Set("1", "10", "100"))
     val initrans = Set("") ++ cartesian(Set("INITRANS"), Set("1", "10", "100"))
-    
+
     cartesian(pctfree, pctused, initrans, Oracle11gStorageClauseTest.statements)
   }
 

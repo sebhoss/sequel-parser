@@ -25,12 +25,12 @@ class Oracle11gUsingIndexClauseTest extends Oracle11gTest {
 }
 
 object Oracle11gUsingIndexClauseTest {
-  
+
   val statements = {
     val using = Set("USING INDEX")
     val index = Set("index", "schema.index")
 
     cartesian(using, index)
   }
-  
+
 }

@@ -28,13 +28,13 @@ class Oracle11gInlineRefConstraintTest extends Oracle11gTest {
 }
 
 object Oracle11gInlineRefConstraintTest {
-  
+
   val statements = {
     val scope = Set("SCOPE IS table", "SCOPE IS schema.table")
     val attribute = Set("WITH ROWID") ++ cartesian(Set("CONSTRAINT constraint", ""),
         Oracle11gReferencesClauseTest.statements)
-    
+
     cartesian(scope, attribute)
   }
-  
+
 }

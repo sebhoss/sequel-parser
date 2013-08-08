@@ -11,14 +11,14 @@ class Oracle11gEncryptionSpecTest extends Oracle11gTest {
 }
 
 object Oracle11gEncryptionSpecTest {
-  
+
   val statements = {
     val algorithm = Set("USING 'algorithm'")
     val password = Set("IDENTIFIED BY password")
     val constraint = Set("'constraint'")
     val salt = Set("SALT", "NOSALT")
-    
+
     cartesian(algorithm, password, constraint, salt)
   }
-  
+
 }
