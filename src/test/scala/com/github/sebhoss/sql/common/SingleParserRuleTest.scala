@@ -5,7 +5,6 @@ import org.parboiled.errors.ParseError
 import org.scalatest.FunSuite
 import org.scalatest.junit.JUnitRunner
 import org.parboiled.scala.rules.Rule0
-import org.parboiled.scala.parserunners.RecoveringParseRunner
 import org.parboiled.scala.parserunners.ReportingParseRunner
 
 @RunWith(classOf[JUnitRunner])
