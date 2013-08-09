@@ -17,7 +17,7 @@ object Oracle11gIndexPartitionDescriptionTest {
     val odci = Set("( PARAMETERS 'odci')")
     val unusable = Set("", "UNUSABLE")
     val options = cartesian(Set("partition"), Oracle11gSegmentAttributesClauseTest.statements ++ Oracle11gKeyCompressionTest.statements ++ odci, unusable)
-    
+
     cartesian(partition, options)
   }
 
