@@ -10,7 +10,7 @@ class Oracle11gDataTypeTest extends Oracle11gTest {
 
 object Oracle11gDataTypeTest {
 
-  val statements = Set(
+  val statements = List(
     /* Oracle built-in datatypes */
     "CHAR",
     "CHAR(123)",

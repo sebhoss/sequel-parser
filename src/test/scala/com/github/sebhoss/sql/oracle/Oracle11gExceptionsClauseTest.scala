@@ -23,8 +23,8 @@ class Oracle11gExceptionsClauseTest extends Oracle11gTest {
 object Oracle11gExceptionsClauseTest {
 
   val statements = {
-    val exception = Set("EXCEPTIONS INTO")
-    val table = Set("table", "schema.table")
+    val exception = List("EXCEPTIONS INTO")
+    val table = List("table", "schema.table")
 
     cartesian(exception, table)
   }

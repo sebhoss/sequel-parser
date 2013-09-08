@@ -13,10 +13,11 @@ class Oracle11gIndexPartitionDescriptionTest extends Oracle11gTest {
 object Oracle11gIndexPartitionDescriptionTest {
 
   val statements = {
-    val partition = Set("PARTITION")
-    val odci = Set("( PARAMETERS 'odci')")
-    val unusable = Set("", "UNUSABLE")
-    val options = cartesian(Set("partition"), Oracle11gSegmentAttributesClauseTest.statements ++ Oracle11gKeyCompressionTest.statements ++ odci, unusable)
+    val partition = List("PARTITION")
+    val odci = List("( PARAMETERS 'odci')")
+    val unusable = List("", "UNUSABLE")
+    val options = cartesian(List("partition"), Oracle11gSegmentAttributesClauseTest.statements.toList ++
+        Oracle11gKeyCompressionTest.statements ++ odci, unusable).toList
 
     cartesian(partition, options)
   }

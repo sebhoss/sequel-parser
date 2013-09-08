@@ -13,8 +13,8 @@ class Oracle11gDeallocateUnusedClauseTest extends Oracle11gTest {
 object Oracle11gDeallocateUnusedClauseTest {
 
   val statements = {
-    val deallocate = Set("DEALLOCATE UNUSED")
-    val keep = Set("") ++ cartesian(Set("KEEP"), Oracle11gSizeClauseTest.statements)
+    val deallocate = List("DEALLOCATE UNUSED")
+    val keep = List("") ++ cartesian(List("KEEP"), Oracle11gSizeClauseTest.statements.toList).toList
 
     cartesian(deallocate, keep)
   }

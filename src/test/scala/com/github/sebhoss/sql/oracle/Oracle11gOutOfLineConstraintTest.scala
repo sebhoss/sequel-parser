@@ -30,10 +30,10 @@ class Oracle11gOutOfLineConstraintTest extends Oracle11gTest {
 object Oracle11gOutOfLineConstraintTest {
 
   val statements = {
-    val constraint = Set("CONSTRAINT constraint", "")
-    val attributes = Set("UNIQUE (column)", "UNIQUE (first, second)", "PRIMARY KEY (column)",
-        "PRIMARY KEY (first, second)", "CHECK (condition)") ++ cartesian(Set("FOREIGN KEY (column)",
-            "FOREIGN KEY (first, second)"), Oracle11gReferencesClauseTest.statements)
+    val constraint = List("CONSTRAINT constraint", "")
+    val attributes = List("UNIQUE (column)", "UNIQUE (first, second)", "PRIMARY KEY (column)",
+        "PRIMARY KEY (first, second)", "CHECK (condition)") ++ cartesian(List("FOREIGN KEY (column)",
+            "FOREIGN KEY (first, second)"), Oracle11gReferencesClauseTest.statements.toList).toList
 
     cartesian(constraint, attributes)
   }

@@ -33,16 +33,16 @@ class Oracle11gIndexAttributesTest extends Oracle11gTest {
 object Oracle11gIndexAttributesTest {
 
   val statements = {
-    val physicalAttributesClause = powerset("PCTFREE 10", "PCTUSED 10", "INITRANS 10")
-    val loggingClause = Set("", "LOGGING", "NOLOGGING", "FILESYSTEM_LIKE_LOGGING")
-    val online = Set("ONLINE")
-    val tablespace = Set("TABLESPACE tablespace", "TABLESPACE DEFAULT")
-    val keyCompress = Set("COMPRESS", "COMPRESS 10", "NOCOMPRESS")
-    val sort = Set("SORT", "NOSORT")
-    val reverse = Set("REVERSE")
-    val visible = Set("VISIBLE")
-    val insivible = Set("INVISIBLE")
-    val parallel = Set("NOPARALLEL", "PARALLEL", "PARALLEL 10")
+    val physicalAttributesClause = powerset("PCTFREE 10", "PCTUSED 10", "INITRANS 10").toList
+    val loggingClause = List("", "LOGGING", "NOLOGGING", "FILESYSTEM_LIKE_LOGGING")
+    val online = List("ONLINE")
+    val tablespace = List("TABLESPACE tablespace", "TABLESPACE DEFAULT")
+    val keyCompress = List("COMPRESS", "COMPRESS 10", "NOCOMPRESS")
+    val sort = List("SORT", "NOSORT")
+    val reverse = List("REVERSE")
+    val visible = List("VISIBLE")
+    val insivible = List("INVISIBLE")
+    val parallel = List("NOPARALLEL", "PARALLEL", "PARALLEL 10")
 
     cartesian(physicalAttributesClause, loggingClause, online, tablespace, keyCompress, sort, reverse, visible,
         insivible, parallel)

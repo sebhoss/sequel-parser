@@ -23,8 +23,8 @@ object Oracle11gDataTypeParser extends AbstractParser {
     * @see [[http://docs.oracle.com/cd/E11882_01/server.112/e17118/sql_elements001.htm Data Types]]
     */
   def datatype = rule {
-    (ANSI_supported_datatypes |
-      Oracle_built_in_datatypes |
+    (Oracle_built_in_datatypes |
+      ANSI_supported_datatypes |
       user_defined_types |
       Oracle_supplied_types)
   }
@@ -107,7 +107,7 @@ object Oracle11gDataTypeParser extends AbstractParser {
     * @see [[http://docs.oracle.com/cd/E11882_01/server.112/e17118/sql_elements001.htm#SQLRF50961 Syntax Definition]]
     */
   def long_and_raw_datatypes = rule {
-    ("LONG" ~ optional("RAW")) | ("RAW" ~ "(" ~ size ~ ")")
+    (("LONG" ~ optional("RAW")) | ("RAW" ~ "(" ~ size ~ ")"))
   }
 
   /** Creates a rule for datetime datatypes.
@@ -185,7 +185,7 @@ object Oracle11gDataTypeParser extends AbstractParser {
     * @see [[http://docs.oracle.com/cd/E11882_01/server.112/e17118/sql_elements001.htm#SQLRF50965 Syntax Definition]]
     */
   def ANSI_supported_datatypes = rule {
-    ("CHARACTER" ~ optional("VARYING") ~ "(" ~ size ~ ")") |
+    (("CHARACTER" ~ optional("VARYING") ~ "(" ~ size ~ ")") |
       (("CHAR" | "NCHAR") ~ "VARYING" ~ "(" ~ size ~ ")") |
       ("VARCHAR" ~ "(" ~ size ~ ")") |
       ("NATIONAL" ~ ("CHARACTER" | "CHAR") ~
@@ -195,7 +195,7 @@ object Oracle11gDataTypeParser extends AbstractParser {
           ("INTEGER" | "INT" | "SMALLINT") |
           ("FLOAT" ~ optional("(" ~ size ~ ")")) |
           ("DOUBLE" ~ "PRECISION") |
-          "REAL"
+          "REAL")
   }
 
   /** Creates a rule for user defined datatypes.

@@ -1,40 +1,36 @@
 package com.github.sebhoss.sql.oracle
 
 import scala.language.postfixOps
-
 import com.github.sebhoss.sql.SQLParser.Oracle
+import org.parboiled.scala.parserunners.TracingParseRunner
+import org.parboiled.support.ParseTreeUtils
 
 class Oracle11gDebuggingTest extends Oracle11gTest {
 
-  def statements = Array(
+  def statements = List(
     """
-      CREATE INDEX
-          ix_emp_01
-      ON
-          emp (deptno)
-      TABLESPACE
-          index_tbs;
-      """ // TODO: Als IT benutzen. Referenz auf Online-Seite (Ein IT pro Seite)
+      ADD_COLUMN XMLTABLE identifier COLUMNS column CHARACTER(123) PATH "path"
+      """
   ) map (statement ⇒ statement trim)
 
-  def rule = Oracle.VERSION_11g.CREATE_INDEX.parser // TODO: Nur Oracle.VERSION_11g.parser benutzen
+  def rule = Oracle11gCreateIndexParser.add_column_clause
 
-  //  for ((statement) ← statements) {
-  //    test("The statement [" + statement + "] should be matched be the parser!") {
-  //      // Given
-  //      val runner = TracingParseRunner(rule)
-  //
-  //      //      .filter(
-  //      //        Lines(10 until 20) && Rules.below(parser.Factor) && !Rules.below(parser.Digits)
-  //      //      )
-  //
-  //      // When
-  //      val result = runner.run(statement)
-  //
-  //      // Then
-  //      assert(result.matched, "Could not parse:\n\n\t" + generateErrorMessage(result.parseErrors, statement) +
-  //        "\nTree: " + ParseTreeUtils.printNodeTree(result));
-  //    }
-  //  }
+    for ((statement) ← statements) {
+      test(s"The statement [$statement] should be matched be the parser!") {
+        // Given
+        val runner = TracingParseRunner(rule)
+  
+        //      .filter(
+        //        Lines(10 until 20) && Rules.below(parser.Factor) && !Rules.below(parser.Digits)
+        //      )
+  
+        // When
+        val result = runner.run(statement)
+  
+        // Then
+        assert(result.matched, "Could not parse:\n\n\t" + generateErrorMessage(result.parseErrors, statement) +
+          "\nTree: " + ParseTreeUtils.printNodeTree(result));
+      }
+    }
 
 }

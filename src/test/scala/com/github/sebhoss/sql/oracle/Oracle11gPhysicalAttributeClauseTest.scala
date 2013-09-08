@@ -13,11 +13,11 @@ class Oracle11gPhysicalAttributeClauseTest extends Oracle11gTest {
 object Oracle11gPhysicalAttributeClauseTest {
 
   val statements = {
-    val pctfree = Set("") ++ cartesian(Set("PCTFREE"), Set("1", "10", "100"))
-    val pctused = Set("") ++ cartesian(Set("PCTUSED"), Set("1", "10", "100"))
-    val initrans = Set("") ++ cartesian(Set("INITRANS"), Set("1", "10", "100"))
+    val pctfree = List("") ++ cartesian(List("PCTFREE"), List("1", "10", "100"))
+    val pctused = List("") ++ cartesian(List("PCTUSED"), List("1", "10", "100"))
+    val initrans = List("") ++ cartesian(List("INITRANS"), List("1", "10", "100"))
 
-    cartesian(pctfree, pctused, initrans, Oracle11gStorageClauseTest.statements)
+    cartesian(pctfree, pctused, initrans, Oracle11gStorageClauseTest.statements.toList)
   }
 
 }

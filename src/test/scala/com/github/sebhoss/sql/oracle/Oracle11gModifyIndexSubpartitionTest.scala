@@ -13,8 +13,9 @@ class Oracle11gModifyIndexSubpartitionTest extends Oracle11gTest {
 object Oracle11gModifyIndexSubpartitionTest {
 
   val statements = {
-    val modify = Set("MODIFY SUBPARTITION subpartition")
-    val partition = Set("UNUSABLE") ++ Oracle11gAllocateExtentClauseTest.statements ++ Oracle11gDeallocateUnusedClauseTest.statements
+    val modify = List("MODIFY SUBPARTITION subpartition")
+    val partition = List("UNUSABLE") ++ Oracle11gAllocateExtentClauseTest.statements.toList ++
+    	Oracle11gDeallocateUnusedClauseTest.statements.toList
 
     cartesian(modify, partition)
   }

@@ -13,7 +13,7 @@ class Oracle11gMaxsizeClauseTest extends Oracle11gTest {
 object Oracle11gMaxsizeClauseTest {
 
   val statements = {
-    cartesian(Set("MAXSIZE"), Set("UNLIMITED") ++ Oracle11gSizeClauseTest.statements)
+    cartesian(List("MAXSIZE"), List("UNLIMITED") ++ Oracle11gSizeClauseTest.statements.toList)
   }
 
 }

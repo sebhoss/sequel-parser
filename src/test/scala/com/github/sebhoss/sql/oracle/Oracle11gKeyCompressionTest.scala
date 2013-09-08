@@ -13,7 +13,7 @@ class Oracle11gKeyCompressionTest extends Oracle11gTest {
 object Oracle11gKeyCompressionTest {
 
   val statements = {
-    cartesian(Set("COMPRESS"), Set("1", "10", "100")) ++ Set("NOCOMPRESS")
+    cartesian(List("COMPRESS"), List("1", "10", "100")) ++ List("NOCOMPRESS")
   }
 
 }

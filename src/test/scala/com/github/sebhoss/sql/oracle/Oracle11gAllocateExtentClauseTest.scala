@@ -13,9 +13,9 @@ class Oracle11gAllocateExtentClauseTest extends Oracle11gTest {
 object Oracle11gAllocateExtentClauseTest {
 
   val statements = {
-    val allocate = Set("ALLOCATE EXTENT")
-    val attribute = Set("", "DATAFILE 'filename'", "INSTANCE 5") ++
-    	cartesian(Set("SIZE"), Oracle11gSizeClauseTest.statements)
+    val allocate = List("ALLOCATE EXTENT")
+    val attribute = List("", "DATAFILE 'filename'", "INSTANCE 5") ++
+    	cartesian(List("SIZE"), Oracle11gSizeClauseTest.statements.toList)
 
     cartesian(allocate, attribute)
   }

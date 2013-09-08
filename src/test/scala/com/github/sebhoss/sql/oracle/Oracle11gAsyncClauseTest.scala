@@ -13,11 +13,11 @@ class Oracle11gAsyncClauseTest extends Oracle11gTest {
 object Oracle11gAsyncClauseTest {
 
   val statements = {
-    val async = Set("ASYNC (SYNC")
-    val sync = Set("ALWAYS", "MANUAL", "EVERY 5", "ON COMMIT")
-    val stale = Set("", "STALE (FALSE)", "STALE (TRUE)")
+    val async = List("ASYNC (SYNC")
+    val sync = List("ALWAYS", "MANUAL", "EVERY 5", "ON COMMIT")
+    val stale = List("", "STALE (FALSE)", "STALE (TRUE)")
 
-    cartesian(async, sync, stale, Set(")"))
+    cartesian(async, sync, stale, List(")"))
   }
 
 }

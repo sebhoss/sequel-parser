@@ -34,12 +34,12 @@ class Oracle11gConstraintStateTest extends Oracle11gTest {
 object Oracle11gConstraintStateTest {
 
   val statements = {
-    val deferable = cartesian(Set("NOT DEFERABLE", "DEFERABLE", ""), Set("INITIALLY IMMEDIATE", "INITIALLY DEFERED", ""))
-    val rely = Set("RELY", "NORELY", "")
-    val usingIndexClause = Oracle11gUsingIndexClauseTest.statements ++ Set("")
-    val enable = Set("ENABLE", "DISABLE", "")
-    val validate = Set("VALIDATE", "NOVALIDATE", "")
-    val exception = Oracle11gExceptionsClauseTest.statements
+    val deferable = cartesian(List("NOT DEFERABLE", "DEFERABLE", ""), List("INITIALLY IMMEDIATE", "INITIALLY DEFERED", "")).toList
+    val rely = List("RELY", "NORELY", "")
+    val usingIndexClause = Oracle11gUsingIndexClauseTest.statements.toList ++ List("")
+    val enable = List("ENABLE", "DISABLE", "")
+    val validate = List("VALIDATE", "NOVALIDATE", "")
+    val exception = Oracle11gExceptionsClauseTest.statements.toList
 
     cartesian(deferable, rely, usingIndexClause, enable, validate, exception)
   }

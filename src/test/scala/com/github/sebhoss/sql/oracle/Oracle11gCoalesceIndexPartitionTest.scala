@@ -13,8 +13,8 @@ class Oracle11gCoalesceIndexPartitionTest extends Oracle11gTest {
 object Oracle11gCoalesceIndexPartitionTest {
 
   val statements = {
-    val coalesce = Set("COALESCE PARTITION")
-    val parallel = Set("") ++ Oracle11gParallelClauseTest.statements
+    val coalesce = List("COALESCE PARTITION")
+    val parallel = List("") ++ Oracle11gParallelClauseTest.statements.toList
 
     cartesian(coalesce, parallel)
   }
