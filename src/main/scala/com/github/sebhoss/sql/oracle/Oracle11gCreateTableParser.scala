@@ -185,7 +185,7 @@ object Oracle11gCreateTableParser extends AbstractParser with CreateTableStateme
   def virtual_column_definition = rule {
     column ~ optional(datatype) ~ optional("GENERATED" ~ "ALWAYS") ~ "AS" ~ "(" ~ column_expression ~ ")" ~
       optional("VIRTUAL") ~
-      optional(inline_constraint ~ zeroOrMore(inline_constraint))
+      zeroOrMore(inline_constraint)
   }
 
   def column_expression = rule {
