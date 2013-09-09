@@ -26,7 +26,13 @@ class Oracle11gInlineConstraintTest extends Oracle11gTest {
 
   def rule = Oracle11gConstraintParser.inline_constraint
 
-  def statements = {
+  def statements = Oracle11gInlineConstraintTest.statements
+
+}
+
+object Oracle11gInlineConstraintTest {
+
+  val statements = {
     val constraint = List("CONSTRAINT constraint", "")
     val attributes = List("NULL", "NOT NULL", "UNIQUE", "PRIMARY KEY", "CHECK (abc)") ++ Oracle11gReferencesClauseTest.statements.toList
 
