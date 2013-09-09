@@ -65,7 +65,7 @@ object Oracle11gAlterIndexParser extends AbstractParser {
         rebuild_clause |
         ("PARAMETERS" ~ "(" ~ "'" ~ ODCI_parameters ~ "'" ~ ")") |
         "COMPILE" |
-        ("ENABLE" | "DISBALE") |
+        ("ENABLE" | "DISABLE") |
         "UNUSABLE" |
         ("VISIBLE" | "INVISIBLE") |
         ("RENAME" ~ "TO" ~ new_name) |
