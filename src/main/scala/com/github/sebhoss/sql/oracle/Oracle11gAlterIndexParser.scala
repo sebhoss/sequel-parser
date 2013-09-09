@@ -250,7 +250,7 @@ object Oracle11gAlterIndexParser extends AbstractParser {
     */
   def rename_index_partition = rule {
     "RENAME" ~
-      (("PARTITION" ~ partition) | "SUBPARTITION" ~ subpartition) ~
+      (("PARTITION" ~ partition) | ("SUBPARTITION" ~ subpartition)) ~
       "TO" ~ new_name
   }
 
