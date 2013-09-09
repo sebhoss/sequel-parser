@@ -23,10 +23,10 @@ object Oracle11gDataTypeParser extends AbstractParser {
     * @see [[http://docs.oracle.com/cd/E11882_01/server.112/e17118/sql_elements001.htm Data Types]]
     */
   def datatype = rule {
-    (Oracle_built_in_datatypes |
-      ANSI_supported_datatypes |
-      user_defined_types |
-      Oracle_supplied_types)
+    (ANSI_supported_datatypes |
+     Oracle_built_in_datatypes |
+     user_defined_types |
+     Oracle_supplied_types)
   }
 
   /** Creates a rule for built-in datatypes by Oracle.
@@ -129,10 +129,13 @@ object Oracle11gDataTypeParser extends AbstractParser {
   def datetime_datatypes = rule {
     ("DATE" |
       ("TIMESTAMP" ~ optional("(" ~ fractional_seconds_precision ~ ")")) |
-      ("WITH" ~ optional("LOCAL") ~ "TIME" ~ "ZONE") |
-      ("INTERVAL" ~ "YEAR" ~ optional("(" ~ year_precision ~ ")") ~ "TO" ~ "MONTH") |
-      ("INTERVAL" ~ "DAY" ~ optional("(" ~ day_precision ~ ")") ~ "TO" ~ "SECOND" ~
-        optional("(" ~ fractional_seconds_precision ~ ")")))
+      ("WITH" ~ optional("LOCAL") ~ "TIME" ~ "ZONE")
+      // // FIXME: Enable Interval parsing
+//      |
+//      ("INTERVAL" ~ "YEAR" ~ optional("(" ~ year_precision ~ ")") ~ "TO" ~ "MONTH") |
+//      ("INTERVAL" ~ "DAY" ~ optional("(" ~ day_precision ~ ")") ~ "TO" ~ "SECOND" ~
+//        optional("(" ~ fractional_seconds_precision ~ ")"))
+        )
   }
 
   /** Creates a rule for large object datatypes.

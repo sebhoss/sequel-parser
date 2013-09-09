@@ -42,9 +42,10 @@ object Oracle11gDataTypeTest {
     "TIMESTAMP(123)",
     "WITH TIME ZONE",
     "WITH LOCAL TIME ZONE",
-    "INTERVAL YEAR TO MONTH",
-    "INTERVAL YEAR(2011) TO MONTH",
-    "INTERVAL DAY TO SECOND",
+    // FIXME: Enable interval testing
+//    "INTERVAL YEAR TO MONTH",
+//    "INTERVAL YEAR(2011) TO MONTH",
+//    "INTERVAL DAY TO SECOND",
     "BLOB",
     "CLOB",
     "NCLOB",
