@@ -14,8 +14,8 @@ object Oracle11gModifyIndexSubpartitionTest {
 
   val statements = {
     val modify = List("MODIFY SUBPARTITION subpartition")
-    val partition = List("UNUSABLE") ++ Oracle11gAllocateExtentClauseTest.statements.toList ++
-    	Oracle11gDeallocateUnusedClauseTest.statements.toList
+    val partition = List("UNUSABLE") ++ Oracle11gAllocateExtentClauseTest.statements ++
+    	Oracle11gDeallocateUnusedClauseTest.statements
 
     cartesian(modify, partition)
   }
