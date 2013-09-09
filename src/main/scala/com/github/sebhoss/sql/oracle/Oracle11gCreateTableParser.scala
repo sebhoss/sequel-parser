@@ -227,7 +227,7 @@ object Oracle11gCreateTableParser extends AbstractParser with CreateTableStateme
   def supplemental_log_grp_clause = rule {
     "GROUP" ~ log_group ~
       "(" ~ column ~ optional("NO" ~ "LOG") ~
-      zeroOrMore("," ~ column ~ optional("NO" ~ "LOG")) ~
+      zeroOrMore("," ~ column ~ optional("NO" ~ "LOG")) ~ ")" ~
       optional("ALWAYS")
   }
 
