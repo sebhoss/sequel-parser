@@ -15,7 +15,7 @@ object Oracle11gVirtualColumnDefinitionTest {
   val statements = {
     val column = cartesian(List("column"), List("", "GENERATED ALWAYS"), List("AS (expression)")).toList
     val virtual = List("", "VIRTUAL")
-    val constraint = List("", Oracle11gInlineConstraintTest.statements.next)
+    val constraint = List("", Oracle11gInlineConstraintTest.statements.toList.head)
 
     cartesian(column, virtual, constraint)
   }
