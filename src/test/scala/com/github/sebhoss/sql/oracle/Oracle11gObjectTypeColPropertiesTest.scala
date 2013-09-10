@@ -13,7 +13,7 @@ class Oracle11gObjectTypeColPropertiesTest extends Oracle11gTest {
 object Oracle11gObjectTypeColPropertiesTest {
 
   val statements = {
-    cartesian(List("COLUMN column"), Oracle11gSubstitutableColumnClauseTest.statements.toList)
+    Set("COLUMN column" + " " + Oracle11gSubstitutableColumnClauseTest.statements.head)
   }
 
 }

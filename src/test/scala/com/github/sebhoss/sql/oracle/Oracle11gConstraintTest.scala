@@ -11,10 +11,10 @@ class Oracle11gConstraintTest extends Oracle11gTest {
 object Oracle11gConstraintTest {
 
   val statements = {
-    Oracle11gInlineConstraintTest.statements ++
-    Oracle11gOutOfLineConstraintTest.statements ++
-    Oracle11gInlineRefConstraintTest.statements ++
-    Oracle11gOutOfLineRefConstraintTest.statements
+    Set(Oracle11gInlineConstraintTest.statements.head,
+        Oracle11gOutOfLineConstraintTest.statements.head,
+        Oracle11gInlineRefConstraintTest.statements.head,
+        Oracle11gOutOfLineRefConstraintTest.statements.head)
   }
 
 }

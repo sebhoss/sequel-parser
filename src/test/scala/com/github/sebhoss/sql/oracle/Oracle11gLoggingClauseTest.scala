@@ -11,7 +11,7 @@ class Oracle11gLoggingClauseTest extends Oracle11gTest {
 object Oracle11gLoggingClauseTest {
 
   val statements = {
-    List("LOGGING", "NOLOGGING", "FILESYSTEM_LIKE_LOGGING")
+    Set("LOGGING", "NOLOGGING", "FILESYSTEM_LIKE_LOGGING")
   }
 
 }

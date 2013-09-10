@@ -13,11 +13,11 @@ class Oracle11gModifyIndexDefaultAttrsTest extends Oracle11gTest {
 object Oracle11gModifyIndexDefaultAttrsTest {
 
   val statements = {
-    val modify = List("MODIFY DEFAULT ATTRIBUTES")
-    val partition = List("", "FOR PARTITION partition")
-    val parameters = Oracle11gPhysicalAttributeClauseTest.statements.toList ++
-    	cartesian(List("TABLESPACE"), List("tablespace", "DEFAULT")) ++
-    	Oracle11gLoggingClauseTest.statements
+    val modify = Set("MODIFY DEFAULT ATTRIBUTES")
+    val partition = Set("", "FOR PARTITION partition")
+    val parameters = Set(Oracle11gPhysicalAttributeClauseTest.statements.head) ++
+    	cartesian(Set("TABLESPACE"), Set("tablespace", "DEFAULT")) ++
+    	Set(Oracle11gLoggingClauseTest.statements.head)
 
     cartesian(modify, parameters)
   }

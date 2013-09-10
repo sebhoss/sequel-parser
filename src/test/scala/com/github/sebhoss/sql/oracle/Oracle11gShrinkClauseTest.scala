@@ -13,8 +13,8 @@ class Oracle11gShrinkClauseTest extends Oracle11gTest {
 object Oracle11gShrinkClauseTest {
 
   val statements = {
-    val shrink = List("SHRINK SPACE")
-    val opts = List("COMPACT", "CASCADE")
+    val shrink = Set("SHRINK SPACE")
+    val opts = Set("COMPACT", "CASCADE")
         
     cartesian(shrink, opts)
   }

@@ -13,7 +13,7 @@ class Oracle11gParallelClauseTest extends Oracle11gTest {
 object Oracle11gParallelClauseTest {
 
   val statements = {
-    cartesian(List("NOPARALLEL", "PARALLEL"), List("", "1", "10", "100"))
+    cartesian(Set("NOPARALLEL", "PARALLEL"), Set("", "1", "10", "100"))
   }
 
 }

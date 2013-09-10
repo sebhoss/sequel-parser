@@ -13,16 +13,16 @@ class Oracle11gModifyIndexPartitionTest extends Oracle11gTest {
 object Oracle11gModifyIndexPartitionTest {
 
   val statements = {
-    val modify = List("MODIFY PARTITION partition")
-    val modifiers = Oracle11gDeallocateUnusedClauseTest.statements.toList ++
-    	Oracle11gAllocateExtentClauseTest.statements ++
-    	Oracle11gPhysicalAttributeClauseTest.statements ++
-    	Oracle11gLoggingClauseTest.statements ++
-    	Oracle11gKeyCompressionTest.statements ++
-    	List("PARAMETERS ('params')") ++
-    	List("COALESCE") ++
-    	List("UPDATE BLOCK REFERENCES") ++
-    	List("UNUSABLE")
+    val modify = Set("MODIFY PARTITION partition")
+    val modifiers = Set(Oracle11gDeallocateUnusedClauseTest.statements.head,
+    	Oracle11gAllocateExtentClauseTest.statements.head,
+    	Oracle11gPhysicalAttributeClauseTest.statements.head,
+    	Oracle11gLoggingClauseTest.statements.head,
+    	Oracle11gKeyCompressionTest.statements.head)
+    	Set("PARAMETERS ('params')") ++
+    	Set("COALESCE") ++
+    	Set("UPDATE BLOCK REFERENCES") ++
+    	Set("UNUSABLE")
 
     cartesian(modify, modifiers)
   }

@@ -11,7 +11,7 @@ import org.parboiled.support.ParseTreeUtils
 
 class Oracle11gDebuggingTest extends FunSuite {
 
-  def statements = List(
+  def statements = Set(
     """
       ADD_COLUMN XMLTABLE identifier COLUMNS column CHARACTER(123) PATH "path"
       """

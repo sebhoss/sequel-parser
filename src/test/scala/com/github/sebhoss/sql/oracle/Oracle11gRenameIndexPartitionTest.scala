@@ -13,10 +13,10 @@ class Oracle11gRenameIndexPartitionTest extends Oracle11gTest {
 object Oracle11gRenameIndexPartitionTest {
 
   val statements = {
-    val rename = List("RENAME")
-    val partitionStart = List("PARTITION", "SUBPARTITION")
-    val partition = List("partition")
-    val to = List("TO new")
+    val rename = Set("RENAME")
+    val partitionStart = Set("PARTITION", "SUBPARTITION")
+    val partition = Set("partition")
+    val to = Set("TO new")
 
     cartesian(rename, partitionStart, partition, to)
   }

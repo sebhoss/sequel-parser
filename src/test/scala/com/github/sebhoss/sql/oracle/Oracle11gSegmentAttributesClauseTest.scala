@@ -26,9 +26,9 @@ class Oracle11gSegmentAttributesClauseTest extends Oracle11gTest {
 object Oracle11gSegmentAttributesClauseTest {
 
   val statements = {
-    val physicalAttributes = Oracle11gPhysicalAttributeClauseTest.statements.toList
-    val tablespace = List("TABLESPACE tablespace")
-    val logging = Oracle11gLoggingClauseTest.statements.toList
+    val physicalAttributes = Set(Oracle11gPhysicalAttributeClauseTest.statements.head)
+    val tablespace = Set("TABLESPACE tablespace")
+    val logging = Set(Oracle11gLoggingClauseTest.statements.head)
 
     cartesian(physicalAttributes, tablespace, logging)
   }

@@ -13,9 +13,9 @@ class Oracle11gColumnClauseTest extends Oracle11gTest {
 object Oracle11gColumnClauseTest {
 
   val statements = {
-    val column = List("column")
-    val attribute = List("FOR ORDINALITY") ++
-    	cartesian(Oracle11gDataTypeTest.statements.toList, List("PATH \"path\"", "PATH \"path\" VIRTUAL")).toList
+    val column = Set("column")
+    val attribute = Set("FOR ORDINALITY") ++
+    	cartesian(Set(Oracle11gDataTypeTest.statements.head), Set("PATH \"path\""), Set("VIRTUAL"))
 
     cartesian(column, attribute)
   }

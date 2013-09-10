@@ -13,7 +13,7 @@ class Oracle11gDropIndexPartitionTest extends Oracle11gTest {
 object Oracle11gDropIndexPartitionTest {
 
   val statements = {
-    List("DROP PARTITION partition")
+    Set("DROP PARTITION partition")
   }
 
 }

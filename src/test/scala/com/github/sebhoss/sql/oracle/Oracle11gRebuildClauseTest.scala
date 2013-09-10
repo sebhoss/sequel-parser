@@ -13,17 +13,17 @@ class Oracle11gRebuildClauseTest extends Oracle11gTest {
 object Oracle11gRebuildClauseTest {
 
   val statements = {
-    val rebuild = List("REBUILD")
-    val partition = List("", "PARTITION partition", "SUBPARTITION subpartition", "REVERSE", "NOREVERSE")
-    val parameters = List("") ++
-    	Oracle11gParallelClauseTest.statements ++
-    	List("TABLESPACE tablespace") ++
-    	List("PARAMETERS ('params')") ++
+    val rebuild = Set("REBUILD")
+    val partition = Set("", "PARTITION partition", "SUBPARTITION subpartition", "REVERSE", "NOREVERSE")
+    val parameters = Set("") ++
+    	Set(Oracle11gParallelClauseTest.statements.head) ++
+    	Set("TABLESPACE tablespace") ++
+    	Set("PARAMETERS ('params')") ++
     	// FIXME: Include statements for XMLIndex_parameters_clause
-    	List("ONLINE") ++
-    	Oracle11gPhysicalAttributeClauseTest.statements ++
-    	Oracle11gKeyCompressionTest.statements ++
-    	Oracle11gLoggingClauseTest.statements
+    	Set("ONLINE") ++
+    	Set(Oracle11gPhysicalAttributeClauseTest.statements.head, 
+    	    Oracle11gKeyCompressionTest.statements.head,
+    	    Oracle11gLoggingClauseTest.statements.head)
         
     cartesian(rebuild, partition, parameters)
   }

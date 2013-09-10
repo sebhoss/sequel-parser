@@ -33,8 +33,8 @@ class Oracle11gInlineConstraintTest extends Oracle11gTest {
 object Oracle11gInlineConstraintTest {
 
   val statements = {
-    val constraint = List("CONSTRAINT constraint", "")
-    val attributes = List("NULL", "NOT NULL", "UNIQUE", "PRIMARY KEY", "CHECK (abc)") ++ Oracle11gReferencesClauseTest.statements.toList
+    val constraint = Set("CONSTRAINT constraint", "")
+    val attributes = Set("NULL", "NOT NULL", "UNIQUE", "PRIMARY KEY", "CHECK (abc)", Oracle11gReferencesClauseTest.statements.head)
 
     cartesian(constraint, attributes)
   }

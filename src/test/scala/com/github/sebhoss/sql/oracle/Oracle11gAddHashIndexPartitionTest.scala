@@ -13,11 +13,11 @@ class Oracle11gAddHashIndexPartitionTest extends Oracle11gTest {
 object Oracle11gAddHashIndexPartitionTest {
 
   val statements = {
-    val addPartition = List("ADD PARTITION")
-    val partition = List("", "partition")
-    val tablespace = List("", "TABLESPACE tablespace")
-    val key = List("") ++ Oracle11gKeyCompressionTest.statements
-    val parallel = List("") ++ Oracle11gParallelClauseTest.statements
+    val addPartition = Set("ADD PARTITION")
+    val partition = Set("", "partition")
+    val tablespace = Set("", "TABLESPACE tablespace")
+    val key = Set("", Oracle11gKeyCompressionTest.statements.head) 
+    val parallel = Set("", Oracle11gParallelClauseTest.statements.head)
 
     cartesian(addPartition, partition, tablespace, key, parallel)
   }

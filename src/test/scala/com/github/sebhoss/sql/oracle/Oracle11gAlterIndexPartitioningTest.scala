@@ -12,15 +12,15 @@ class Oracle11gAlterIndexPartitioningTest extends Oracle11gTest {
 
 object Oracle11gAlterIndexPartitioningTest {
 
-  val statements = {
-    Oracle11gModifyIndexDefaultAttrsTest.statements ++
-    Oracle11gAddHashIndexPartitionTest.statements ++
-    Oracle11gModifyIndexPartitionTest.statements ++
-    Oracle11gRenameIndexPartitionTest.statements ++
-    Oracle11gDropIndexPartitionTest.statements ++
-    Oracle11gSplitIndexPartitionTest.statements ++
-    Oracle11gCoalesceIndexPartitionTest.statements ++
-    Oracle11gModifyIndexSubpartitionTest.statements
-  }
+  val statements = Set(
+      Oracle11gModifyIndexDefaultAttrsTest.statements.head,
+      Oracle11gAddHashIndexPartitionTest.statements.head,
+      Oracle11gModifyIndexPartitionTest.statements.head,
+      Oracle11gRenameIndexPartitionTest.statements.head,
+      Oracle11gDropIndexPartitionTest.statements.head,
+      Oracle11gSplitIndexPartitionTest.statements.head,
+      Oracle11gCoalesceIndexPartitionTest.statements.head,
+      Oracle11gModifyIndexSubpartitionTest.statements.head
+  )
 
 }

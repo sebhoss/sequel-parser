@@ -13,15 +13,15 @@ class Oracle11gSubstitutableColumnClauseTest extends Oracle11gTest {
 object Oracle11gSubstitutableColumnClauseTest {
 
   val statements = {
-    val element = List("", "ELEMENT")
-    val isOf = List("IS OF")
-    val typ = List("", "TYPE")
-    val typeName = List("(ONLY name)", "(name)")
-    
-    val not = List("", "NOT")
-    val subs = List("SUBSTITUTABLE AT ALL LEVELS")
-    
-    cartesian(element, isOf, typ, typeName) ++ cartesian(not, subs)
+    val element = Set("", "ELEMENT")
+    val isOf = Set("IS OF")
+    val typ = Set("", "TYPE")
+    val typeName = Set("(ONLY name)", "(name)")
+
+    val not = Set("", "NOT")
+    val subs = Set("SUBSTITUTABLE AT ALL LEVELS")
+
+    cartesian(element, isOf, typ, typeName).toList ++ cartesian(not, subs)
   }
 
 }

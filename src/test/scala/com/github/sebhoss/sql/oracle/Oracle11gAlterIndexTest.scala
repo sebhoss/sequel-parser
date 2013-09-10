@@ -13,26 +13,25 @@ class Oracle11gAlterIndexTest extends Oracle11gTest {
 object Oracle11gAlterIndexTest {
 
   val statements = {
-    val alter = List("ALTER INDEX")
-    val schema = List("", "schema.")
-    val index = List("index")
-    val params = Oracle11gDeallocateUnusedClauseTest.statements.toList ++
-    	Oracle11gAllocateExtentClauseTest.statements ++
-    	Oracle11gShrinkClauseTest.statements ++
-    	Oracle11gParallelClauseTest.statements ++
-    	Oracle11gPhysicalAttributeClauseTest.statements ++
-    	Oracle11gLoggingClauseTest.statements ++
-    	Oracle11gRebuildClauseTest.statements ++
-    	List("PARAMETERS ('params')") ++
-    	List("COMPILE") ++
-    	List("ENABLE", "DISABLE") ++
-    	List("UNUSABLE") ++
-    	List("VISIBLE", "INVISIBLE") ++
-    	List("RENAME TO new") ++
-    	List("COALESCE") ++
-    	cartesian(List("MONITORING", "NOMONITORING"), List("USAGE")) ++
-    	List("UPDATE BLOCK REFERENCES") ++
-    	Oracle11gAlterIndexPartitioningTest.statements
+    val alter = Set("ALTER INDEX")
+    val schema = Set("", "schema.")
+    val index = Set("index")
+    val params = Set(Oracle11gDeallocateUnusedClauseTest.statements.head,
+        Oracle11gAllocateExtentClauseTest.statements.head,
+    	Oracle11gShrinkClauseTest.statements.head,
+    	Oracle11gParallelClauseTest.statements.head,
+    	Oracle11gPhysicalAttributeClauseTest.statements.head,
+    	Oracle11gLoggingClauseTest.statements.head,
+    	Oracle11gRebuildClauseTest.statements.head) ++
+    	Set("PARAMETERS ('params')") ++
+    	Set("COMPILE") ++
+    	Set("ENABLE", "DISABLE") ++
+    	Set("UNUSABLE") ++
+    	Set("VISIBLE", "INVISIBLE") ++
+    	Set("RENAME TO new") ++
+    	Set("COALESCE") ++
+    	cartesian(Set("MONITORING", "NOMONITORING"), Set("USAGE")) ++
+    	Set("UPDATE BLOCK REFERENCES", Oracle11gAlterIndexPartitioningTest.statements.head)
         
     cartesian(alter, schema, index, params)
   }

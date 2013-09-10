@@ -33,8 +33,9 @@ class Oracle11gSimpleExpressionTest extends Oracle11gTest {
 object Oracle11gSimpleExpressionTest {
 
   val statements = {
-    cartesian(List("table.", "schema.table."), List("column", "ROWID")) ++ List("ROWNUM") ++ List("\"asdf\"") ++
-      List("1", "2", "3") ++ List("sequence.CURRVAL", "sequence.NEXTVAL") ++ List("NULL")
+    Set("ROWNUM") ++ Set("\"asdf\"") ++
+      Set("1", "2", "3") ++ Set("sequence.CURRVAL", "sequence.NEXTVAL") ++ Set("NULL") ++
+      cartesian(Set("table.", "schema.table."), Set("column", "ROWID"))
   }
 
 }

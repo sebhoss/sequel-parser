@@ -31,10 +31,9 @@ class Oracle11gOutOfLineRefConstraintTest extends Oracle11gTest {
 object Oracle11gOutOfLineRefConstraintTest {
 
   val statements = {
-    val scope = List("SCOPE FOR (column) IS table", "SCOPE FOR (column) IS schema.table", "")
-    val ref = List("REF (column) WITH ROWID")
-    val constraint = List("CONSTRAINT constraint FOREIGN KEY (column)", "FOREIGN KEY (column)") ++ 
-    	Oracle11gReferencesClauseTest.statements.toList
+    val scope = Set("SCOPE FOR (column) IS table", "SCOPE FOR (column) IS schema.table", "")
+    val ref = Set("REF (column) WITH ROWID")
+    val constraint = Set("CONSTRAINT constraint FOREIGN KEY (column)", "FOREIGN KEY (column)", Oracle11gReferencesClauseTest.statements.head)
 
     cartesian(scope, ref, constraint)
   }

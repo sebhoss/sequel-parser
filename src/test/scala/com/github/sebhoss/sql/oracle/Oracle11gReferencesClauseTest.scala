@@ -27,10 +27,10 @@ class Oracle11gReferencesClauseTest extends Oracle11gTest {
 object Oracle11gReferencesClauseTest {
 
   val statements = {
-    val references = List("REFERENCES table", "REFERENCES schema.table")
-    val column = List("", "(column)", "(first, second)")
-    val delete = List("", "ON DELETE CASCADE", "ON DELETE SET NULL")
-    val constraintState = Oracle11gConstraintStateTest.statements.toList
+    val references = Set("REFERENCES table", "REFERENCES schema.table")
+    val column = Set("", "(column)", "(first, second)")
+    val delete = Set("", "ON DELETE CASCADE", "ON DELETE SET NULL")
+    val constraintState = Set(Oracle11gConstraintStateTest.statements.head)
 
     cartesian(references, column, delete, constraintState)
   }

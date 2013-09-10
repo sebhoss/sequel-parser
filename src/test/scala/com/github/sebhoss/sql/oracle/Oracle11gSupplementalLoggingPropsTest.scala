@@ -13,9 +13,10 @@ class Oracle11gSupplementalLoggingPropsTest extends Oracle11gTest {
 object Oracle11gSupplementalLoggingPropsTest {
 
   val statements = {
-    val log = List("SUPPLEMENTAL LOG")
+    val log = Set("SUPPLEMENTAL LOG")
     
-    cartesian(log, Oracle11gSupplementalLogGrpClauseTest.statements.toList ++ Oracle11gSupplementalIdKeyClauseTest.statements)
+    cartesian(log, Set(Oracle11gSupplementalLogGrpClauseTest.statements.head) ++
+        Set(Oracle11gSupplementalIdKeyClauseTest.statements.head))
   }
 
 }

@@ -13,9 +13,9 @@ class Oracle11gSupplementalIdKeyClauseTest extends Oracle11gTest {
 object Oracle11gSupplementalIdKeyClauseTest {
 
   val statements = {
-    val data = List("DATA (")
-    val opts = List("ALL", "PRIMARY KEY", "UNIQUE", "FOREIGN KEY")
-    val columns = List(") COLUMNS")
+    val data = Set("DATA (")
+    val opts = Set("ALL", "PRIMARY KEY", "UNIQUE", "FOREIGN KEY")
+    val columns = Set(") COLUMNS")
     
     cartesian(data, opts, columns)
   }

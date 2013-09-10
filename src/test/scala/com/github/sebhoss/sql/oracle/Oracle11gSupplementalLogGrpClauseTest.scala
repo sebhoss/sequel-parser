@@ -13,9 +13,9 @@ class Oracle11gSupplementalLogGrpClauseTest extends Oracle11gTest {
 object Oracle11gSupplementalLogGrpClauseTest {
 
   val statements = {
-    val group = List("GROUP group")
-    val column = cartesian(List("(column"), List("NO LOG"), List(")")).toList
-    val always = List("", "ALWAYS")
+    val group = Set("GROUP group")
+    val column = cartesian(Set("(column"), Set("NO LOG"), Set(")"))
+    val always = Set("", "ALWAYS")
     
     cartesian(group, column, always)
   }

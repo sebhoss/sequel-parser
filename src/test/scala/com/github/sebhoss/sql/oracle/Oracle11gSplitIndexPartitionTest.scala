@@ -13,10 +13,10 @@ class Oracle11gSplitIndexPartitionTest extends Oracle11gTest {
 object Oracle11gSplitIndexPartitionTest {
 
   val statements = {
-    val partition = List("SPLIT PARTITION partition AT (literal)")
-    val into = List("INTO (") ++ Oracle11gIndexPartitionDescriptionTest.statements ++ List(")")
+    val partition = Set("SPLIT PARTITION partition AT (literal)")
+    val into = Set("INTO (") ++ Set(Oracle11gIndexPartitionDescriptionTest.statements.head) ++ Set(")")
     
-    cartesian(partition, into, Oracle11gParallelClauseTest.statements.toList)
+    cartesian(partition, into, Set(Oracle11gParallelClauseTest.statements.head))
   }
   
 }

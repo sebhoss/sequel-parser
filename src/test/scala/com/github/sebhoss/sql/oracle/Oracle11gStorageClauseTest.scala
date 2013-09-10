@@ -13,21 +13,21 @@ class Oracle11gStorageClauseTest extends Oracle11gTest {
 object Oracle11gStorageClauseTest {
 
   val statements = {
-    val storage = List("STORAGE (")
-    val attribute = cartesian(List("INITIAL"), Oracle11gSizeClauseTest.statements.toList).toList ++
-    	cartesian(List("NEXT"), Oracle11gSizeClauseTest.statements.toList) ++
-    	cartesian(List("MINEXTENTS"), List("1", "10", "100", "1000")) ++
-    	cartesian(List("MAXEXTENTS"), List("1", "10", "100", "1000", "UNLIMITED")) ++
-    	Oracle11gMaxsizeClauseTest.statements ++
-    	cartesian(List("PCTINCREASE"), List("1", "10", "100", "1000")) ++
-    	cartesian(List("FREELISTS"), List("1", "10", "100", "1000")) ++
-    	cartesian(List("FREELIST GROUPS"), List("1", "10", "100", "1000")) ++
-    	cartesian(List("OPTIMAL"), Oracle11gSizeClauseTest.statements.toList ++ List("NULL")) ++
-    	cartesian(List("BUFFER_POOL"), List("KEEP", "RECYCLE", "DEFAULT")) ++
-    	cartesian(List("FLASH_CACHE"), List("KEEP", "NONE", "DEFAULT")) ++
-    	List("ENCRYPT")
+    val storage = Set("STORAGE (")
+    val attribute = Set("INITIAL" + " " + Oracle11gSizeClauseTest.statements.head) ++
+    	cartesian(Set("NEXT"), Oracle11gSizeClauseTest.statements.toList) ++
+    	cartesian(Set("MINEXTENTS"), Set("1", "10", "100", "1000")) ++
+    	cartesian(Set("MAXEXTENTS"), Set("1", "10", "100", "1000", "UNLIMITED")) ++
+    	Set(Oracle11gMaxsizeClauseTest.statements.head) ++
+    	cartesian(Set("PCTINCREASE"), Set("1", "10", "100", "1000")) ++
+    	cartesian(Set("FREELISTS"), Set("1", "10", "100", "1000")) ++
+    	cartesian(Set("FREELIST GROUPS"), Set("1", "10", "100", "1000")) ++
+    	cartesian(Set("OPTIMAL"), Set(Oracle11gSizeClauseTest.statements.head) ++ Set("NULL")) ++
+    	cartesian(Set("BUFFER_POOL"), Set("KEEP", "RECYCLE", "DEFAULT")) ++
+    	cartesian(Set("FLASH_CACHE"), Set("KEEP", "NONE", "DEFAULT")) ++
+    	Set("ENCRYPT")
 
-    cartesian(storage, attribute, List(")"))
+    cartesian(storage, attribute, Set(")"))
   }
 
 }

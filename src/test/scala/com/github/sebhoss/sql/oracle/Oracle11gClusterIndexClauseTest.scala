@@ -19,10 +19,11 @@ class Oracle11gClusterIndexClauseTest extends Oracle11gTest {
   def rule = Oracle11gCreateIndexParser.cluster_index_clause
 
   def statements = {
-    val cluster = List("CLUSTER")
-    val clusterName = List("cluster", "schema.cluster")
+    val cluster = Set("CLUSTER")
+    val clusterName = Set("cluster", "schema.cluster")
+    val indexAttributes = Set(Oracle11gIndexAttributesTest.statements.head)
 
-    cartesian(cluster, clusterName, Oracle11gIndexAttributesTest.statements.toList)
+    cartesian(cluster, clusterName, indexAttributes)
   }
 
 }
