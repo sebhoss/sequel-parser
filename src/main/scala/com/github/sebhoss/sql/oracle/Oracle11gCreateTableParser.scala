@@ -401,6 +401,8 @@ object Oracle11gCreateTableParser extends AbstractParser with CreateTableStateme
       optional("ACCESS" ~ "PARAMETERS" ~
         (("(" ~ opaque_format_spec ~ ")") |
           ("USING" ~ "CLOB" ~ subquery)))
+      "LOCATION" ~ "(" ~ optional(directory ~ ":") ~ "'" ~ oneOrMore(Letters | Digits | Symbols) ~ "'" ~ 
+          zeroOrMore("," ~ optional(directory ~ ":") ~ "'" ~ oneOrMore(Letters | Digits | Symbols) ~ "'")
   }
 
   /**
