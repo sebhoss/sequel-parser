@@ -14,8 +14,8 @@ abstract class SingleParserRuleTest extends FunSuite {
   def rule: Rule0
   def statements: TraversableOnce[String]
 
-  test(s"Testing [$rule] for database [$databaseName]") {
-	for (statement ← statements) {
+  for (statement ← statements) {
+    test(s"The statement [$statement] should be parsed by [$rule] for database [$databaseName]") {
       // Given
       val runner = ReportingParseRunner(rule)
 
