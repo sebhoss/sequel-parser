@@ -493,10 +493,10 @@ object Oracle11gCreateTableParser extends AbstractParser with CreateTableStateme
   def object_properties = rule {
     ((column | attribute) ~
       optional("DEFAULT" ~ expr) ~
-      optional(oneOrMore(inline_constraint) | inline_ref_constraint) |
+      optional(oneOrMore(inline_constraint) | inline_ref_constraint)) |
       (out_of_line_constraint |
         out_of_line_ref_constraint |
-        supplemental_logging_props))
+        supplemental_logging_props)
   }
 
   /**
