@@ -749,14 +749,14 @@ object Oracle11gCreateTableParser extends AbstractParser with CreateTableStateme
    * @see [[http://docs.oracle.com/cd/E11882_01/server.112/e26088/statements_7002.htm#i2149089 Syntax Definition]]
    */
   def LOB_parameters = rule {
-    oneOrMore(("ENABLE" | "DISBALE") ~ "STORAGE" ~ "IN" ~ "ROW" |
-      "CHUNK" ~ integer |
-      "PCTVERSION" ~ integer |
-      "FREEPOOLS" ~ integer |
+    oneOrMore((("ENABLE" | "DISABLE") ~ "STORAGE" ~ "IN" ~ "ROW") |
+      ("CHUNK" ~ integer) |
+      ("PCTVERSION" ~ integer) |
+      ("FREEPOOLS" ~ integer) |
       LOB_retention_clause |
       LOB_deduplicate_clause |
       LOB_compression_clause |
-      ("ENCRYPT" ~ encryption_spec | "DECRYPT") ~
+      ("ENCRYPT" ~ encryption_spec | "DECRYPT") |
       ("CACHE" | "NOCACHE" | ("CACHE" ~ "READS")) ~ optional(logging_clause))
   }
 
