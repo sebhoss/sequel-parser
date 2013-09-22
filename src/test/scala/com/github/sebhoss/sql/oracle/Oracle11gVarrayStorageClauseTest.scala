@@ -18,7 +18,7 @@ object Oracle11gVarrayStorageClauseTest {
     val lob = Set("LOB")
     val params = cartesian(Set("", "segname"), Set("("), Oracle11gLOBStorageParameters.statements.take(1), Set(")"))
     val segname = Set("segname")
-    
+
     cartesian(cartesian(store, where, lob), params, segname)
   }
 
